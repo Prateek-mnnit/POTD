@@ -33,3 +33,24 @@ static bool cmp(pair<int,int> a,pair<int,int> b){
 
         }
         return ans;
+
+           
+      
+
+//Max Sum Subarray of size K
+link  :  https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1?fbclid=IwAR2WbNUhe8lWUd0N8mb6A-tk7VmD4HpeIXDyDBt7DMZZM8U54x2INXA-j9w
+           
+            long ans = 0,sum = 0,i = 0,j = 0;
+        while(j<N)
+        {
+            sum+=Arr[j];
+            if(j-i+1 < K)
+                j++;
+            else if(j-i+1 == K)
+            {
+               ans = max(ans,sum);
+               sum-=Arr[i];
+               i++,j++;
+            }
+        }
+        return ans;
